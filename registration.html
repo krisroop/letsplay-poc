@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — Summer Camp 2026 | LetsPlay Indoor</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .etransfer-box {
+      background: #FFF8E1;
+      border: 2px solid #FFD600;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+    .etransfer-box strong { color: #E65100; }
+    .etransfer-box .etransfer-email {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #1A1A2E;
+      display: block;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <img src="images/letsplay-logo.jpg" alt="LetsPlay Indoor" style="height:48px; width:auto; border-radius:6px;" />
+        <div class="logo-text">
+          <span class="tagline" style="color:rgba(255,255,255,0.7); font-size:0.8rem;">Midland, Ontario</span>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="registration.html" class="active btn-nav">Register Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>📝 Summer Camp Registration</h1>
+      <p>July 6 – August 14, 2026 · $265/week</p>
+    </div>
+  </section>
+
+  <!-- FORM WRAPPER -->
+  <section class="form-section">
+    <div class="container">
+
+      <!-- THANK YOU MESSAGE (hidden until submit) -->
+      <div id="thank-you" class="thank-you-box" style="display:none;">
+        <div class="ty-icon">🎉</div>
+        <h2>Registration Received!</h2>
+        <p>Thank you! We'll be in touch shortly to confirm your spot.</p>
+        <div class="etransfer-box">
+          <strong>Next step — secure your spot with a deposit:</strong>
+          <p style="margin:8px 0 4px;">Send <strong>$132.50 per week</strong> (50% deposit) via e-transfer to:</p>
+          <span class="etransfer-email">angela.garcia@letsplayindoor.ca</span>
+          <p>Use your child's name as the message. Balance of $132.50/week is due before each camp week begins.</p>
+          <p style="margin-top:8px; font-size:0.85em; color:#777;">Prefer to pay by card? Call us at <strong>705-245-9577</strong>. Cancellations subject to a 25% admin fee.</p>
+        </div>
+        <a href="index.html" class="btn-primary" style="margin-top:24px; display:inline-block;">Back to Home</a>
+      </div>
+
+      <form id="reg-form" class="reg-form" action="https://formspree.io/f/mnjojwyw" method="POST" onsubmit="handleSubmit(event)" novalidate>
+        <input type="hidden" name="_subject" value="Summer Camp 2026 Registration" />
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <!-- ========== SECTION 1: CHILD INFO ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">👦</span>
+            <h2>Camper Information</h2>
+          </div>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="child-first">First Name <span class="req">*</span></label>
+              <input type="text" id="child-first" name="child_first" required placeholder="First name" />
+            </div>
+            <div class="form-field">
+              <label for="child-last">Last Name <span class="req">*</span></label>
+              <input type="text" id="child-last" name="child_last" required placeholder="Last name" />
+            </div>
+            <div class="form-field">
+              <label for="child-dob">Date of Birth <span class="req">*</span></label>
+              <input type="date" id="child-dob" name="child_dob" required />
+            </div>
+            <div class="form-field">
+              <label for="child-grade">Grade (entering Fall 2026) <span class="req">*</span></label>
+              <select id="child-grade" name="child_grade" required>
+                <option value="">-- Select Grade --</option>
+                <option value="JK">Junior Kindergarten (JK)</option>
+                <option value="SK">Senior Kindergarten (SK)</option>
+                <option value="1">Grade 1</option>
+                <option value="2">Grade 2</option>
+                <option value="3">Grade 3</option>
+                <option value="4">Grade 4</option>
+                <option value="5">Grade 5</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field full-width">
+            <label for="child-allergies">Allergies / Medical Conditions</label>
+            <textarea id="child-allergies" name="child_allergies" rows="3" placeholder="List any known allergies, dietary restrictions, or medical conditions we should be aware of. Write 'None' if not applicable."></textarea>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 2: WEEK SELECTION + PRICING CALCULATOR ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">📅</span>
+            <h2>Week Selection</h2>
+          </div>
+          <p class="form-hint">Select the weeks your camper will attend. Before &amp; After care options are available per week.</p>
+
+          <div class="week-select-grid">
+
+            <div class="week-select-card" id="ws-1">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="1" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 1</div>
+                  <div class="ws-theme">⚽ FIFA World Cup</div>
+                  <div class="ws-dates">July 6 – 10, 2026</div>
+                  <div class="ws-price">$265</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-1" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w1" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w1" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+            <div class="week-select-card" id="ws-2">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="2" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 2</div>
+                  <div class="ws-theme">🐄 Farm Week</div>
+                  <div class="ws-dates">July 13 – 17, 2026</div>
+                  <div class="ws-price">$265</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-2" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w2" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w2" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+            <div class="week-select-card" id="ws-3">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="3" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 3</div>
+                  <div class="ws-theme">🐠 Under The Sea</div>
+                  <div class="ws-dates">July 20 – 24, 2026</div>
+                  <div class="ws-price">$265</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-3" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w3" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w3" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+            <div class="week-select-card" id="ws-4">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="4" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 4</div>
+                  <div class="ws-theme">🏙️ Exploring My Town</div>
+                  <div class="ws-dates">July 27 – 31, 2026</div>
+                  <div class="ws-price">$265</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-4" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w4" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w4" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+            <div class="week-select-card week5-special" id="ws-5">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="5" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 5</div>
+                  <div class="ws-theme">🦁 Animal Week</div>
+                  <div class="ws-dates">Aug 3 – 7, 2026</div>
+                  <div class="ws-price">$265</div>
+                  <div class="ws-note">⚠️ Mon Aug 3 = Civic Holiday (closed)</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-5" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w5" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w5" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+            <div class="week-select-card" id="ws-6">
+              <label class="week-check-label">
+                <input type="checkbox" name="week[]" value="6" class="week-cb" onchange="calcTotal()" />
+                <div class="ws-card-inner">
+                  <div class="ws-week-num">Week 6</div>
+                  <div class="ws-theme">🏺 History Week</div>
+                  <div class="ws-dates">Aug 10 – 14, 2026</div>
+                  <div class="ws-price">$265</div>
+                </div>
+              </label>
+              <div class="care-options" id="care-6" style="display:none;">
+                <label class="care-label"><input type="checkbox" name="before_w6" class="care-cb" onchange="calcTotal()" /> ☀️ Before Care (+$)</label>
+                <label class="care-label"><input type="checkbox" name="after_w6" class="care-cb" onchange="calcTotal()" /> 🌙 After Care (+$)</label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- PRICE CALCULATOR -->
+          <div class="price-calc" id="price-calc" style="display:none;">
+            <div class="calc-row">
+              <span>Weeks selected:</span>
+              <span id="calc-weeks">0 × $265</span>
+            </div>
+            <div class="calc-row" id="care-row" style="display:none;">
+              <span>Extended care:</span>
+              <span id="calc-care">TBD at registration</span>
+            </div>
+            <div class="calc-row total-row">
+              <span>Total camp fees:</span>
+              <span id="calc-total">$0</span>
+            </div>
+            <div class="calc-row deposit-row">
+              <span>Deposit due today (50%):</span>
+              <span id="calc-deposit">$0</span>
+            </div>
+            <div class="calc-row balance-row">
+              <span>Balance due (first Monday of each week):</span>
+              <span id="calc-balance">$0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 3: PARENT / GUARDIAN ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">👨‍👩‍👦</span>
+            <h2>Parent / Guardian Information</h2>
+          </div>
+
+          <h3 class="sub-heading">Primary Parent / Guardian</h3>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="p1_first" required placeholder="First name" />
+            </div>
+            <div class="form-field">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="p1_last" required placeholder="Last name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship to Child <span class="req">*</span></label>
+              <select name="p1_relationship" required>
+                <option value="">-- Select --</option>
+                <option>Mother</option><option>Father</option><option>Step-Mother</option>
+                <option>Step-Father</option><option>Guardian</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" name="p1_phone" required placeholder="(705) 555-0000" />
+            </div>
+            <div class="form-field full-width">
+              <label>Email Address <span class="req">*</span></label>
+              <input type="email" name="p1_email" required placeholder="you@example.com" />
+            </div>
+          </div>
+
+          <h3 class="sub-heading">Secondary Parent / Guardian</h3>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label>First Name</label>
+              <input type="text" name="p2_first" placeholder="First name" />
+            </div>
+            <div class="form-field">
+              <label>Last Name</label>
+              <input type="text" name="p2_last" placeholder="Last name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship to Child</label>
+              <select name="p2_relationship">
+                <option value="">-- Select --</option>
+                <option>Mother</option><option>Father</option><option>Step-Mother</option>
+                <option>Step-Father</option><option>Guardian</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>Phone Number</label>
+              <input type="tel" name="p2_phone" placeholder="(705) 555-0000" />
+            </div>
+            <div class="form-field full-width">
+              <label>Email Address</label>
+              <input type="email" name="p2_email" placeholder="you@example.com" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 4: EMERGENCY CONTACTS ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">🚨</span>
+            <h2>Emergency Contacts</h2>
+          </div>
+          <p class="form-hint">Must be someone other than a parent/guardian listed above.</p>
+
+          <h3 class="sub-heading">Emergency Contact 1</h3>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" name="ec1_name" required placeholder="Full name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship to Child <span class="req">*</span></label>
+              <input type="text" name="ec1_relationship" required placeholder="e.g. Aunt, Grandparent" />
+            </div>
+            <div class="form-field full-width">
+              <label>Phone Number <span class="req">*</span></label>
+              <input type="tel" name="ec1_phone" required placeholder="(705) 555-0000" />
+            </div>
+          </div>
+
+          <h3 class="sub-heading">Emergency Contact 2</h3>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label>Full Name</label>
+              <input type="text" name="ec2_name" placeholder="Full name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship to Child</label>
+              <input type="text" name="ec2_relationship" placeholder="e.g. Aunt, Grandparent" />
+            </div>
+            <div class="form-field full-width">
+              <label>Phone Number</label>
+              <input type="tel" name="ec2_phone" placeholder="(705) 555-0000" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 5: AUTHORIZED PICKUPS ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">🔑</span>
+            <h2>Authorized Pickups</h2>
+          </div>
+          <p class="form-hint">List any individuals (besides parents above) authorized to pick up your child. Staff will ask for ID.</p>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label>Authorized Person 1 — Full Name</label>
+              <input type="text" name="pickup1_name" placeholder="Full name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship</label>
+              <input type="text" name="pickup1_rel" placeholder="e.g. Grandparent, Sibling" />
+            </div>
+            <div class="form-field">
+              <label>Authorized Person 2 — Full Name</label>
+              <input type="text" name="pickup2_name" placeholder="Full name" />
+            </div>
+            <div class="form-field">
+              <label>Relationship</label>
+              <input type="text" name="pickup2_rel" placeholder="e.g. Grandparent, Sibling" />
+            </div>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 6: CONSENTS & WAIVERS ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">📋</span>
+            <h2>Consents &amp; Waivers</h2>
+          </div>
+          <p class="form-hint">Please read each statement carefully before signing.</p>
+
+          <div class="waiver-block">
+            <h3>📷 Photo &amp; Media Release</h3>
+            <p>I give LetsPlay Indoor permission to photograph and/or video record my child during camp activities. These images may be used on our website, social media, and promotional materials. No personally identifying information will be shared.</p>
+            <label class="consent-label">
+              <input type="checkbox" name="photo_consent" required />
+              <span>I consent to photo and media release <span class="req">*</span></span>
+            </label>
+          </div>
+
+          <div class="waiver-block">
+            <h3>🏃 Participation Consent &amp; Assumption of Risk</h3>
+            <p>I acknowledge that participation in camp activities may carry inherent risks, including but not limited to physical activities, outdoor play, field trips, and water activities. I voluntarily consent to my child's participation and assume responsibility for any risks associated with these activities. I acknowledge that LetsPlay Indoor staff will take all reasonable precautions to ensure my child's safety.</p>
+            <label class="consent-label">
+              <input type="checkbox" name="participation_consent" required />
+              <span>I have read, understood, and agree to the Participation Consent &amp; Assumption of Risk <span class="req">*</span></span>
+            </label>
+          </div>
+
+          <div class="waiver-block">
+            <h3>🚌 Transportation &amp; Liability Waiver</h3>
+            <p>I consent to my child being transported on LetsPlay Indoor's bus for daily off-site field trips. I understand that all drivers are appropriately licensed and insured, and that all reasonable safety measures will be taken. I release LetsPlay Indoor and its staff from liability arising from transportation to and from field trip locations, except in cases of gross negligence.</p>
+            <label class="consent-label">
+              <input type="checkbox" name="transport_consent" required />
+              <span>I have read, understood, and agree to the Transportation &amp; Liability Waiver <span class="req">*</span></span>
+            </label>
+          </div>
+
+          <div class="waiver-block refund-reminder">
+            <h3>💳 Refund Policy Acknowledgement</h3>
+            <p><strong>Full refund minus 25% admin fee</strong> for cancellations before June 1, 2026. <strong>No refunds after June 1, 2026.</strong></p>
+            <label class="consent-label">
+              <input type="checkbox" name="refund_consent" required />
+              <span>I understand and agree to the refund policy <span class="req">*</span></span>
+            </label>
+          </div>
+        </div>
+
+        <!-- ========== SECTION 7: SIGNATURE ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">✍️</span>
+            <h2>Signature</h2>
+          </div>
+          <p class="form-hint">By signing below, you confirm that all information provided is accurate, and that you have read and agreed to all consents and waivers above.</p>
+          <div class="form-grid-2">
+            <div class="form-field">
+              <label for="sig-name">Full Legal Name (Parent/Guardian) <span class="req">*</span></label>
+              <input type="text" id="sig-name" name="sig_name" required placeholder="Type your full legal name" />
+            </div>
+            <div class="form-field">
+              <label for="sig-date">Date <span class="req">*</span></label>
+              <input type="date" id="sig-date" name="sig_date" required />
+            </div>
+          </div>
+          <p class="sig-note">By entering your full name above you are providing a legally binding electronic signature.</p>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="form-submit-area">
+          <button type="submit" class="btn-submit">Submit Registration 🎉</button>
+          <p class="submit-note">After submission, we'll contact you within 1–2 business days to confirm your spot and collect the deposit.</p>
+        </div>
+
+      </form>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand"><img src="images/letsplay-logo.jpg" alt="LetsPlay Indoor" style="height:40px; width:auto; border-radius:4px; margin-bottom:8px; display:block;"/></div>
+          <p>Family indoor playground in Midland, Ontario.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Full Schedule</a></li>
+            <li><a href="registration.html">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>📧 inquiries@letsplayindoor.ca</li>
+            <li>🌐 letsplayindoor.ca</li>
+            <li>📍 Midland, Ontario</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 LetsPlay Indoor · Summer Camp POC — Internal Review Only</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Auto-set today's date
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, '0');
+    document.getElementById('sig-date').value = yyyy + '-' + mm + '-' + dd;
+
+    // Toggle care options when week is checked
+    document.querySelectorAll('.week-cb').forEach(function(cb) {
+      cb.addEventListener('change', function() {
+        var weekNum = this.value;
+        var careDiv = document.getElementById('care-' + weekNum);
+        var card = document.getElementById('ws-' + weekNum);
+        if (this.checked) {
+          careDiv.style.display = 'flex';
+          card.classList.add('selected');
+        } else {
+          careDiv.style.display = 'none';
+          card.classList.remove('selected');
+          careDiv.querySelectorAll('input[type=checkbox]').forEach(function(c){ c.checked = false; });
+        }
+        calcTotal();
+      });
+    });
+
+    function calcTotal() {
+      var weekCbs = document.querySelectorAll('.week-cb:checked');
+      var weekCount = weekCbs.length;
+      var weekTotal = weekCount * 265;
+      var careCount = document.querySelectorAll('.care-cb:checked').length;
+
+      var calcBox = document.getElementById('price-calc');
+      if (weekCount === 0) {
+        calcBox.style.display = 'none';
+        return;
+      }
+      calcBox.style.display = 'block';
+
+      document.getElementById('calc-weeks').textContent = weekCount + ' × $265 = $' + weekTotal.toFixed(2);
+
+      var careRow = document.getElementById('care-row');
+      if (careCount > 0) {
+        careRow.style.display = 'flex';
+        document.getElementById('calc-care').textContent = careCount + ' selection(s) — pricing TBD';
+      } else {
+        careRow.style.display = 'none';
+      }
+
+      document.getElementById('calc-total').textContent = '$' + weekTotal.toFixed(2) + (careCount > 0 ? ' + care fees' : '');
+      var deposit = weekTotal * 0.50;
+      var balance = weekTotal - deposit;
+      document.getElementById('calc-deposit').textContent = '$' + deposit.toFixed(2);
+      document.getElementById('calc-balance').textContent = '$' + balance.toFixed(2) + (careCount > 0 ? ' + care fees' : '');
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      var form = document.getElementById('reg-form');
+      var weeks = document.querySelectorAll('.week-cb:checked');
+
+      if (weeks.length === 0) {
+        alert('Please select at least one camp week before submitting.');
+        return;
+      }
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+
+      try {
+        var data = new FormData(form);
+        var response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          document.getElementById('thank-you').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          btn.textContent = 'Submit Registration 🎉';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or call 705-245-9577.');
+        }
+      } catch (err) {
+        btn.textContent = 'Submit Registration 🎉';
+        btn.disabled = false;
+        alert('Unable to submit. Please call 705-245-9577 to register.');
+      }
+    }
+  </script>
+
+</body>
+</html>
