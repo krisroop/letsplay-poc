@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waiver — LetsPlay Indoor Playground</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .waiver-wrap {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 0 24px 60px;
+    }
+    .waiver-wrap h1 {
+      color: #2E1A8C;
+      font-size: 1.8em;
+      margin-bottom: 6px;
+    }
+    .waiver-wrap h2 {
+      font-size: 1em;
+      color: #444;
+      font-weight: 600;
+      margin: 28px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .waiver-wrap p {
+      color: #444;
+      line-height: 1.75;
+      font-size: 0.95em;
+      margin-bottom: 16px;
+    }
+    .waiver-wrap .legal-notice {
+      background: #fff3e0;
+      border-left: 4px solid #F7941D;
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      color: #333;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .waiver-form {
+      background: #f9f6ff;
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+    .waiver-form h3 {
+      color: #2E1A8C;
+      margin-bottom: 24px;
+      font-size: 1.1em;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-row.full { grid-template-columns: 1fr; }
+    .form-row label {
+      display: block;
+      font-size: 0.85em;
+      font-weight: 600;
+      color: #2E1A8C;
+      margin-bottom: 6px;
+    }
+    .form-row input[type="text"],
+    .form-row input[type="email"],
+    .form-row input[type="date"] {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95em;
+      box-sizing: border-box;
+    }
+    .agree-block {
+      background: #fff;
+      border: 2px solid #2E1A8C;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 20px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .agree-block input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .agree-block label {
+      font-size: 0.9em;
+      color: #333;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .age-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .age-block input[type="checkbox"] {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+    .age-block label {
+      font-size: 0.9em;
+      color: #333;
+    }
+    .submit-btn {
+      background: #F7941D;
+      color: #fff;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 8px;
+      font-size: 1em;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { background: #e07d0a; }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <img src="images/letsplay-logo.jpg" alt="LetsPlay Indoor" style="height:48px; width:auto; border-radius:6px;" />
+        <div class="logo-text">
+          <span class="logo-name">LetsPlay Indoor</span>
+          <span class="logo-tag">Midland, Ontario</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="index.html">Summer Camp</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="waiver.html" class="active">Waiver</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- WAIVER CONTENT -->
+  <div class="waiver-wrap">
+    <h1>Participant Waiver</h1>
+    <p style="color:#666; margin-bottom:24px;">Please read the following carefully before signing. This document is legally binding.</p>
+
+    <div class="legal-notice">
+      ⚠️ PLEASE READ CAREFULLY. THIS DOCUMENT AFFECTS YOUR LEGAL RIGHTS AND IS LEGALLY BINDING. BY SUBMITTING THIS FORM YOU ARE RELEASING LETS PLAY INDOOR PLAYGROUND FROM ALL LIABILITY.
+    </div>
+
+    <h2>Assumption of Risk</h2>
+    <p>I acknowledge and agree that any use of Lets Play Indoor Playground facilities, services, equipment and premises ("Facilities") and any participation in Lets Play Indoor Playground programs and activities ("Programs") comes with inherent risks including, but in no way limited to: (1) moderate and severe personal injury, (2) property damage, (3) disability, (4) death, and (5) sickness or disease including, without limitation, COVID-19. I voluntarily accept and assume full responsibility for these risks as well as any and all other risks of the use of Facilities and participation in Programs. I agree that I have full knowledge of the nature and extent of all such risks and am not relying on all such risks being described in this document.</p>
+
+    <h2>Waiver, Release, Indemnification &amp; Covenant Not to Sue</h2>
+    <p>In consideration of the use of Facilities and participation in Programs I, the undersigned, agree that Lets Play Indoor Playground, its officers, directors, agents, employees, volunteers, insurers and representatives ("Releasees") will not be liable for any personal injury, property damage, disability, death, sickness or disease incurred by myself, my family members, dependents, or guests, including minors, however occurring, including but not limited to the negligence of Releasees. I understand that I will be solely responsible for any loss or damage, including personal injury, property damage, disability, death, sickness or disease sustained from the use of Facilities and participation in Programs.</p>
+    <p>I further agree, on behalf of myself and any and all legal successors and proxies, to release and <strong>HEREBY DO RELEASE, WAIVE AND COVENANT NOT TO SUE</strong> Releasees from any causes of action, claims, suits, liabilities or demands of any nature whatsoever including, but in no way limited to, claims of negligence, which I and any and all legal successors and proxies may have, now or in the future, against Releasees on account of personal injury, property damage, disability, death, sickness, diseases or accident of any kind, arising out of or in any way related to the use of Facilities or participation in Programs, whether that participation is supervised or unsupervised, however the injury or damage occurs, including but not limited to the negligence of Releasees.</p>
+    <p>In further consideration of the use of Facilities and participation in Programs, I agree to <strong>INDEMNIFY AND HOLD HARMLESS</strong> Releasees from any and all causes of action, claims, demands, losses, suits, liabilities or costs of any nature whatsoever, including claims of negligence, arising out of or in any way related to the use of Facilities and participation in Programs by myself, my family members, dependents or guests, including any minors.</p>
+    <p><strong>Nothing in this Agreement shall absolve the Releasees from liability for damages or injuries the cause(s) of which are directly attributable to their errors of omission or acts of negligence.</strong></p>
+
+    <!-- FORM -->
+    <div class="waiver-form">
+      <h3>Complete & Submit Your Waiver</h3>
+      <form action="https://formspree.io/f/mnjojwyw" method="POST">
+        <input type="hidden" name="_subject" value="New Waiver Submission — LetsPlay Indoor" />
+        <input type="hidden" name="form_type" value="waiver" />
+
+        <div class="form-row">
+          <div>
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required />
+          </div>
+          <div>
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div>
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div>
+            <label for="address">Street Address</label>
+            <input type="text" id="address" name="address" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" />
+          </div>
+          <div>
+            <label for="postal">Postal Code</label>
+            <input type="text" id="postal" name="postal" />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div>
+            <label for="waiver_date">Date *</label>
+            <input type="date" id="waiver_date" name="waiver_date" required />
+          </div>
+        </div>
+
+        <div class="age-block">
+          <input type="checkbox" id="age_confirm" name="age_confirm" value="confirmed" required />
+          <label for="age_confirm">I confirm that I am 18 years of age or older *</label>
+        </div>
+
+        <div class="agree-block">
+          <input type="checkbox" id="agree_terms" name="agree_terms" value="I AGREE TO THE TERMS AND DECLARE THAT ALL PERSONAL INFORMATION IS CORRECT" required />
+          <label for="agree_terms">I have read and understood the above waiver. I AGREE TO THE TERMS AND DECLARE THAT ALL PERSONAL INFORMATION IS CORRECT. *</label>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Waiver</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand"><img src="images/letsplay-logo.jpg" alt="LetsPlay Indoor" style="height:40px; width:auto; border-radius:4px; margin-bottom:8px; display:block;"/></div>
+          <p>3,400+ sq ft of safe, clean, joyful play for ages 6 months to 10 years.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="index.html">Summer Camp</a></li>
+            <li><a href="schedule.html">Schedule &amp; Pricing</a></li>
+            <li><a href="waiver.html">Waiver</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>📍 9226 County Rd 93 Unit #106<br/>Midland, ON L4R 4K4</p>
+          <p>📞 <a href="tel:7052459577">(705) 245-9577</a></p>
+          <p>✉️ <a href="mailto:inquiries@letsplayindoor.ca">inquiries@letsplayindoor.ca</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 LetsPlay Indoor · 9226 County Rd 93 Unit #106, Midland, ON · All rights reserved. &nbsp;·&nbsp; <span style="opacity:0.6; font-size:0.9em;">Site refreshed April 2026</span></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
