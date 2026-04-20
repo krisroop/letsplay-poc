@@ -121,6 +121,81 @@
             <label for="child-allergies">Allergies / Medical Conditions</label>
             <textarea id="child-allergies" name="child_allergies" rows="3" placeholder="List any known allergies, dietary restrictions, or medical conditions we should be aware of. Write 'None' if not applicable."></textarea>
           </div>
+
+          <div class="form-field full-width">
+            <label for="child-toileting">Is your child fully toilet-trained? <span class="req">*</span></label>
+            <select id="child-toileting" name="child_toileting" required>
+              <option value="">-- Select --</option>
+              <option value="Yes">Yes, fully trained</option>
+              <option value="In progress">In progress / mostly trained</option>
+              <option value="No">No</option>
+            </select>
+            <p style="font-size:0.82em; color:#888; margin-top:5px;">All campers must be fully toilet-trained. If your child is still in progress, please call us at (705) 245-9577 before registering.</p>
+          </div>
+        </div>
+
+        <!-- ========== SPECIAL NEEDS & ACCOMMODATIONS ========== -->
+        <div class="form-section-block">
+          <div class="form-section-header">
+            <span class="form-section-icon">🤝</span>
+            <h2>Special Needs &amp; Accommodations</h2>
+          </div>
+          <p class="form-hint">We welcome children of all abilities. To make sure we can support your child properly, please answer the questions below honestly. A staff member will follow up if needed before confirming your spot.</p>
+
+          <div class="form-field full-width">
+            <label for="special-needs-flag">Does your child have any diagnosed disabilities, developmental differences, or special needs? <span class="req">*</span></label>
+            <select id="special-needs-flag" name="special_needs_flag" required onchange="toggleSpecialNeeds(this.value)">
+              <option value="">-- Select --</option>
+              <option value="No">No</option>
+              <option value="Yes">Yes</option>
+              <option value="Prefer not to say">Prefer not to say — please contact me</option>
+            </select>
+          </div>
+
+          <div id="special-needs-details" style="display:none;">
+
+            <div class="form-field full-width">
+              <label for="special-needs-description">Please describe your child's diagnosis or area of need</label>
+              <textarea id="special-needs-description" name="special_needs_description" rows="3" placeholder="e.g. Autism Spectrum Disorder (Level 1), ADHD, Down syndrome, anxiety, etc."></textarea>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="school-support">Does your child receive support at school? (EA, IEP, behaviour plan, etc.)</label>
+              <select id="school-support" name="school_support">
+                <option value="">-- Select --</option>
+                <option value="Yes - EA support">Yes — has an Educational Assistant (EA)</option>
+                <option value="Yes - IEP only">Yes — IEP but no dedicated EA</option>
+                <option value="Yes - other">Yes — other support</option>
+                <option value="No">No school support</option>
+                <option value="Not in school">Not currently in school</option>
+              </select>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="accommodations-needed">What accommodations or support does your child need to participate safely and happily?</label>
+              <textarea id="accommodations-needed" name="accommodations_needed" rows="3" placeholder="e.g. needs quiet breaks, sensory sensitivities to loud noise, prefers visual schedules, needs reminders for transitions, etc."></textarea>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="behaviours-staff">Is there anything staff should know about your child's behaviour, communication style, or triggers?</label>
+              <textarea id="behaviours-staff" name="behaviours_staff" rows="3" placeholder="e.g. may elope when overwhelmed, uses limited verbal communication, calms down with deep pressure, etc."></textarea>
+            </div>
+
+            <div class="form-field full-width">
+              <label for="shadow-worker">Will your child be accompanied by a personal support worker or shadow?</label>
+              <select id="shadow-worker" name="shadow_worker">
+                <option value="">-- Select --</option>
+                <option value="Yes">Yes — they will bring their own support worker</option>
+                <option value="No">No — relying on LetsPlay staff support</option>
+                <option value="Open to it">Open to it if recommended</option>
+              </select>
+            </div>
+
+            <div style="background:#fff3e0; border-left:4px solid #F7941D; padding:14px 18px; border-radius:6px; margin-top:12px; font-size:0.88em; color:#555;">
+              ⚠️ <strong>Please note:</strong> LetsPlay Indoor is a small private facility. We do not have dedicated 1:1 support staff on site. If your child requires continuous 1:1 supervision or specialized therapeutic support, we may need to discuss whether our program is the right fit. A staff member will reach out within 2 business days of your registration to chat. We want to set your child up for success — not disappointment.
+            </div>
+
+          </div>
         </div>
 
         <!-- ========== SECTION 2: WEEK SELECTION + PRICING CALCULATOR ========== -->
@@ -499,6 +574,12 @@
   </footer>
 
   <script>
+    // Toggle special needs section
+    function toggleSpecialNeeds(val) {
+      var details = document.getElementById('special-needs-details');
+      details.style.display = (val === 'Yes' || val === 'Prefer not to say') ? 'block' : 'none';
+    }
+
     // Auto-set today's date
     var today = new Date();
     var yyyy = today.getFullYear();
